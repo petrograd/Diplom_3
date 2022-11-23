@@ -1,75 +1,79 @@
 package pageobject;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
-
-public class RegistrationPage {
-    WebDriver driver;
+public class RegistrationPage extends BasicPages {
     public static final String URL = "https://stellarburgers.nomoreparties.site/register";
     // локатор для кнопки 'Зарегистрироваться'
-    private final By regButton = By.xpath(".//button[text()='Зарегистрироваться']");
+    @FindBy(xpath = ".//button[text()='Зарегистрироваться']")
+    private WebElement completeRegistrationButton;
+
     // локатор для поля 'Имя'
-    private final By nameInput = By.xpath(".//fieldset[1]//input");
+    @FindBy(xpath = ".//fieldset[1]//input")
+    private WebElement nameInputField;
+
+
     // локатор для поля 'Email'
-    private final By emailInput = By.xpath(".//fieldset[2]//input");
+    @FindBy(xpath = ".//fieldset[2]//input")
+    private WebElement emailInput;
+
     // локатор для поля 'Пароль'
-    private final By passwordInput = By.xpath(".//fieldset[3]//input");
+    @FindBy(xpath = ".//fieldset[3]//input")
+    private WebElement passwordInput;
+
     // локатор для ошибки 'Некорректный пароль'
-    private final By passwordError = By.xpath(".//p[text()='Некорректный пароль']");
+    @FindBy(xpath = ".//p[text()='Некорректный пароль']")
+    private WebElement passwordError;
+
     // локатор для ссылки 'Войти'
-    private final By signInLink = By.linkText("Войти");
+    @FindBy(linkText = "Войти")
+    private WebElement signInLink;
+
 
     public RegistrationPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+
     }
     public String getUrl() {
         return URL;
     }
 
     public void waitRegButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(regButton));
+
+        waitForElement(completeRegistrationButton);
+
     }
 
     public void sendKeysName(String name) {
-        WebElement element = driver.findElement(nameInput);
-        element.sendKeys(name);
+        nameInputField.sendKeys(name);
     }
 
     public void sendKeysEmail(String email) {
-        WebElement element = driver.findElement(emailInput);
-        element.sendKeys(email);
+        emailInput.sendKeys(email);
     }
 
     public void sendKeysPassword(String password) {
-        WebElement element = driver.findElement(passwordInput);
-        element.sendKeys(password);
+        passwordInput.sendKeys(password);
     }
 
     public void clickRegButton() {
-        WebElement element = driver.findElement(regButton);
-        element.click();
+        completeRegistrationButton.click();
     }
 
     public void waitError() {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(passwordError));
+        waitForElement(passwordError);
     }
 
 
     public String getError() {
-        WebElement element = driver.findElement(passwordError);
-        return element.getText();
+        return passwordError.getText();
     }
 
     public void clickSignInLink() {
-        WebElement element = driver.findElement(signInLink);
-        element.click();
+        signInLink.click();
     }
 
     public void registerUser(String name, String email, String password) {
