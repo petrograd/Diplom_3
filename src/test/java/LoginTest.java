@@ -1,27 +1,17 @@
-import extensions.DriverFactory;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pageobject.*;
 import setup.SetUp;
-
-import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
 public class LoginTest extends SetUp {
-   // private WebDriver driver;
-//    private LoginPage loginPage;
-//    private HomePage homePage;
 
     @Before
     public void setup() {
         chromeDriverSetUp();
-     //   driver = DriverFactory.getBrowser();
-     //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-     //openHomePage(); //P
         homePage = new HomePage(driver);
         driver.get(homePage.getUrl());
         driver.manage().window().maximize();
@@ -29,7 +19,7 @@ public class LoginTest extends SetUp {
     }
 
     @After
-    public void teardown() {
+    public void tearDown() {
         closeDriver();
     }
 
@@ -38,10 +28,7 @@ public class LoginTest extends SetUp {
     public void shouldLoginFromHomePageAccountButton() {
         loginPage = new LoginPage(driver);
         homePage.clickSignInButton();
-        loginPage.waitSignInButton();
-        loginPage.sendKeysEmail(EMAIL);
-        loginPage.sendKeysPassword(PASSWORD);
-        loginPage.clickSignInButton();
+        loginPage.signIn(EMAIL, PASSWORD);
         homePage.waitOrder();
         assertEquals(homePage.getUrl(), driver.getCurrentUrl());
     }
@@ -51,10 +38,7 @@ public class LoginTest extends SetUp {
     public void shouldLoginFromHomePageLoginButton() {
         loginPage = new LoginPage(driver);
         homePage.clickAccountButton();
-        loginPage.waitSignInButton();
-        loginPage.sendKeysEmail(EMAIL);
-        loginPage.sendKeysPassword(PASSWORD);
-        loginPage.clickSignInButton();
+        loginPage.signIn(EMAIL, PASSWORD);
         homePage.waitOrder();
         assertEquals(homePage.getUrl(), driver.getCurrentUrl());
     }
@@ -67,10 +51,7 @@ public class LoginTest extends SetUp {
         driver.get(registrationPage.getUrl());
         registrationPage.waitRegButton();
         registrationPage.clickSignInLink();
-        loginPage.waitSignInButton();
-        loginPage.sendKeysEmail(EMAIL);
-        loginPage.sendKeysPassword(PASSWORD);
-        loginPage.clickSignInButton();
+        loginPage.signIn(EMAIL, PASSWORD);
         homePage.waitOrder();
         assertEquals(homePage.getUrl(), driver.getCurrentUrl());
     }
@@ -83,10 +64,7 @@ public class LoginTest extends SetUp {
         driver.get(forgotPasswordPage.getUrl());
         forgotPasswordPage.waitRestorePasswordButton();
         forgotPasswordPage.clickSignInLink();
-        loginPage.waitSignInButton();
-        loginPage.sendKeysEmail(EMAIL);
-        loginPage.sendKeysPassword(PASSWORD);
-        loginPage.clickSignInButton();
+        loginPage.signIn(EMAIL, PASSWORD);
         homePage.waitOrder();
         assertEquals(homePage.getUrl(), driver.getCurrentUrl());
     }

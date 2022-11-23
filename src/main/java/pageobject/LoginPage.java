@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage extends BasicPages{
-   // WebDriver driver;
     public static final String URL = "https://stellarburgers.nomoreparties.site/login";
     // локатор для кнопки 'Войти'
     @FindBy(xpath = ".//button[text()='Войти']")
@@ -53,5 +52,12 @@ public class LoginPage extends BasicPages{
     public LoginPage waitForPage() {
         waitForElement(logInButton);
         return this;
+    }
+
+    public void signIn(String email, String password) {
+        waitSignInButton();
+        sendKeysEmail(email);
+        sendKeysPassword(password);
+        clickSignInButton();
     }
 }

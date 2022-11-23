@@ -15,7 +15,6 @@ public class SetUp {
 
     public static final String HOME_PAGE_LINK = "https://stellarburgers.nomoreparties.site/";
 
-
     protected WebDriver driver;
     protected HomePage homePage;
     protected LoginPage loginPage;
