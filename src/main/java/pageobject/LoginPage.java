@@ -56,4 +56,10 @@ public class LoginPage extends BasicPages{
         sendKeysPassword(password);
         clickSignInButton();
     }
+
+    @Step("Отображается страница для логина пользователя")
+    public boolean loginPageDisplayed() {
+        waitForElement(logInButton);
+        return logInButton.isDisplayed();
+    }
 }

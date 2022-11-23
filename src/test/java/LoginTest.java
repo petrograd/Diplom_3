@@ -34,7 +34,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход через кнопку «Личный кабинет»")
+    @DisplayName("вход по кнопке «Личный кабинет»")
     public void shouldLoginFromHomePageLoginButton() {
         loginPage = new LoginPage(driver);
         homePage.clickAccountButton();
@@ -44,7 +44,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход через кнопку в форме регистрации")
+    @DisplayName("вход по кнопке в форме регистрации")
     public void shouldLoginFromRegistrationPage() {
         loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -57,7 +57,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход через кнопку в форме восстановления пароля")
+    @DisplayName("вход по кнопке в форме восстановления пароля")
     public void shouldLoginFromPasswordRecoveryPage() {
         loginPage = new LoginPage(driver);
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage(driver);

@@ -4,10 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage extends BasicPages {
     public static final String URL = "https://stellarburgers.nomoreparties.site/";
@@ -21,7 +17,7 @@ public class HomePage extends BasicPages {
 
     // локатор для ссылки 'Личный кабинет'
     @FindBy(linkText = "Личный Кабинет")
-    private WebElement accountButton;
+    private WebElement profileButton;
 
     // локатор для выбраного раздела
     private final By activeTab = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span");
@@ -75,7 +71,7 @@ public class HomePage extends BasicPages {
     }
 
     public void clickAccountButton() {
-        accountButton.click();
+        profileButton.click();
     }
 
     public String getTextActiveTab() {
@@ -93,5 +89,16 @@ public class HomePage extends BasicPages {
 
     public void clickFillings() {
         fillingsTab.click();
+    }
+
+    public ProfilePage goToProfilePage() {
+        waitForElement(profileButton);
+        profileButton.click();
+        return new ProfilePage(driver);
+    }
+
+    public boolean orderButtonAvailable() {
+        waitForElement(orderButton);
+        return orderButton.isDisplayed();
     }
 }
