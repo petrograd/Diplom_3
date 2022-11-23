@@ -1,5 +1,6 @@
 
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -10,6 +11,7 @@ import setup.SetUp;
 
 import static org.junit.Assert.assertEquals;
 
+@DisplayName("Раздел «Регистрация пользователя»")
 public class RegistrationTest extends SetUp {
     private RegistrationPage registrationPage;
     private String email, password;

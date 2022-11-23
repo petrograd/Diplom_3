@@ -7,6 +7,7 @@ import setup.SetUp;
 
 import static org.junit.Assert.assertEquals;
 
+@DisplayName("Раздел «Личный кабинет»")
 public class LoginTest extends SetUp {
 
     @Before
@@ -24,7 +25,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход по кнопке «Войти в аккаунт» на главной")
+    @DisplayName("Вход по кнопке «Войти в аккаунт» на главной")
     public void shouldLoginFromHomePageAccountButton() {
         loginPage = new LoginPage(driver);
         homePage.clickSignInButton();
@@ -34,7 +35,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход по кнопке «Личный кабинет»")
+    @DisplayName("Вход по кнопке «Личный кабинет»")
     public void shouldLoginFromHomePageLoginButton() {
         loginPage = new LoginPage(driver);
         homePage.clickAccountButton();
@@ -44,7 +45,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход по кнопке в форме регистрации")
+    @DisplayName("Вход по кнопке в форме регистрации")
     public void shouldLoginFromRegistrationPage() {
         loginPage = new LoginPage(driver);
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -57,7 +58,7 @@ public class LoginTest extends SetUp {
     }
 
     @Test
-    @DisplayName("вход по кнопке в форме восстановления пароля")
+    @DisplayName("Вход по кнопке в форме восстановления пароля")
     public void shouldLoginFromPasswordRecoveryPage() {
         loginPage = new LoginPage(driver);
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage(driver);

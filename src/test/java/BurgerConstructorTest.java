@@ -7,6 +7,7 @@ import setup.SetUp;
 
 import static org.junit.Assert.assertEquals;
 
+@DisplayName("Раздел Конструктор")
 public class BurgerConstructorTest extends SetUp {
 
     @Before

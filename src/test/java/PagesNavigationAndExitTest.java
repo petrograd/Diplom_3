@@ -8,6 +8,7 @@ import setup.SetUp;
 
 import static org.junit.Assert.assertTrue;
 
+@DisplayName("Переходы по страницам")
 public class PagesNavigationAndExitTest extends SetUp {
 
     @Before
