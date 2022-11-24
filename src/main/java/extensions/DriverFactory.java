@@ -23,8 +23,9 @@ public class DriverFactory {
             case "yandex":
                 WebDriverManager.chromedriver().driverVersion("107.0.5304.107").setup();
                 return new ChromeDriver(new ChromeOptions().setBinary("C:\\Users\\Petr\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe"));
-            default: throw new RuntimeException("Для тестов используем только браузер chrome или yandex\n" +
-                    "mvn clean test -Dbrowser=chrome");
+            default:
+                throw new RuntimeException("Для тестов используем только браузер chrome или yandex\n" +
+                        "mvn clean test -Dbrowser=chrome");
         }
     }
 }

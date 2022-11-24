@@ -31,5 +31,4 @@ public class SetUp {
         driver.quit();
     }
 
-
 }

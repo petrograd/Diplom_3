@@ -1,13 +1,11 @@
 package pageobject;
 
 import io.qameta.allure.Step;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
-public class LoginPage extends BasicPages{
+public class LoginPage extends BasicPages {
     public static final String URL = "https://stellarburgers.nomoreparties.site/login";
 
     // локатор для кнопки 'Войти'
@@ -29,9 +27,10 @@ public class LoginPage extends BasicPages{
     public String getUrl() {
         return URL;
     }
+
     public void waitSignInButton() {
         waitForElement(logInButton); //P
-     }
+    }
 
     public void sendKeysEmail(String email) {
         emailInputField.sendKeys(email);
@@ -40,6 +39,7 @@ public class LoginPage extends BasicPages{
     public void sendKeysPassword(String password) {
         passwordInputField.sendKeys(password);
     }
+
     public void clickSignInButton() {
         logInButton.click();
     }

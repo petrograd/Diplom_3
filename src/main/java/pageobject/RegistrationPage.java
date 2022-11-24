@@ -1,12 +1,12 @@
 package pageobject;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RegistrationPage extends BasicPages {
     public static final String URL = "https://stellarburgers.nomoreparties.site/register";
+
     // локатор для кнопки 'Зарегистрироваться'
     @FindBy(xpath = ".//button[text()='Зарегистрироваться']")
     private WebElement completeRegistrationButton;
@@ -14,7 +14,6 @@ public class RegistrationPage extends BasicPages {
     // локатор для поля 'Имя'
     @FindBy(xpath = ".//fieldset[1]//input")
     private WebElement nameInputField;
-
 
     // локатор для поля 'Email'
     @FindBy(xpath = ".//fieldset[2]//input")
@@ -32,19 +31,16 @@ public class RegistrationPage extends BasicPages {
     @FindBy(linkText = "Войти")
     private WebElement signInLink;
 
-
     public RegistrationPage(WebDriver driver) {
         super(driver);
-
     }
+
     public String getUrl() {
         return URL;
     }
 
     public void waitRegButton() {
-
         waitForElement(completeRegistrationButton);
-
     }
 
     public void sendKeysName(String name) {
@@ -66,7 +62,6 @@ public class RegistrationPage extends BasicPages {
     public void waitError() {
         waitForElement(passwordError);
     }
-
 
     public String getError() {
         return passwordError.getText();

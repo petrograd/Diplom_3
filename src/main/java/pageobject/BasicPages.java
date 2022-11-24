@@ -25,5 +25,4 @@ public class BasicPages {
         return new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(element));
     }
 
-
 }

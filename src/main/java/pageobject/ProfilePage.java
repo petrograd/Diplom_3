@@ -20,24 +20,30 @@ public class ProfilePage extends BasicPages {
     // локатор для кнопки 'Выход'
     @FindBy(xpath = ".//button[text()='Выход']")
     private WebElement exitButton;
+
     public ProfilePage(WebDriver driver) {
         super(driver);
     }
+
     public String getUrl() {
         return URL;
     }
+
     public void waitProfileLink() {
         waitForElement(profileLink);
     }
+
     public boolean profileDisplayed() {
         waitForElement(profileLink);
         return profileLink.isDisplayed();
     }
+
     public LoginPage clickOnExitButton() {
         waitForElement(exitButton);
         exitButton.click();
         return new LoginPage(driver);
     }
+
     public HomePage goHomeByClickingBurgerLogo() {
         waitForElement(burgerLogo);
         burgerLogo.click();

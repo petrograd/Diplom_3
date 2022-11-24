@@ -31,7 +31,7 @@ public class RegistrationTest extends SetUp {
     }
 
     @Test
-    @Description("Успешная регистрация нового юзера")
+    @DisplayName("Успешная регистрация нового юзера")
     public void SuccessRegistrationShowsOk() {
         LoginPage loginPage = new LoginPage(driver);
         email = RandomStringUtils.randomAlphanumeric(16)+"@ya.ru";
@@ -42,7 +42,7 @@ public class RegistrationTest extends SetUp {
     }
 
     @Test
-    @Description("Неудачная регистрация нового юзера. Пароль меньше 6 символов")
+    @DisplayName("Неудачная регистрация нового юзера. Пароль меньше 6 символов")
     public void shortPasswordRegistrationShowsError() {
         email = RandomStringUtils.randomAlphanumeric(16)+"@ya.ru";
         password = RandomStringUtils.randomAlphanumeric(5);

@@ -22,7 +22,7 @@ public class BurgerConstructorTest extends SetUp {
     @After
     public void tearDown() {
         closeDriver();
-     }
+    }
 
     @Test
     @DisplayName("Проверяем, что работает переход к разделу «Булки»")
